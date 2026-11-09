@@ -24,6 +24,7 @@ const PUBLIC_SRC = new Set([
   'boot-webrtc.js',
   'boot-captcha.js',
   'exit.js',
+  'trace.js',
   'api.js',
   'connectivity.js',
   'sites.js',

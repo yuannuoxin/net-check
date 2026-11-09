@@ -4,6 +4,7 @@
 export const ENDPOINTS = {
   ipwho: 'https://ipwho.is/',
   trace: 'https://1.1.1.1/cdn-cgi/trace',
+  traceEch: 'https://cloudflare-ech.com/cdn-cgi/trace',
   lookup: (ip) => `https://ip.net.coffee/api/ip/lookup/${encodeURIComponent(ip)}`,
   edns: (label) => `https://${label}.edns.ip-api.com/json`,
 };
@@ -131,4 +132,9 @@ export async function getDefaultIP() {
   } catch {
     return null;
   }
+}
+
+/** 拉取 Cloudflare 边缘 trace 纯文本（key=value 每行一条） */
+export async function getTraceText(url = ENDPOINTS.traceEch) {
+  return fetchText(url, { timeout: 6000 });
 }

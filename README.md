@@ -4,7 +4,7 @@
 
 ## 功能
 
-- **出口概览**：IPv4 / IPv6 双栈出口并列展示，分别给出归属地、城市、ASN / 组织、ISP、线路类型与风险标记，并标注浏览器默认优先使用的协议栈。
+- **出口概览**：IPv4 / IPv6 双栈出口并列展示，分别给出归属地、城市、ASN / 组织、ISP、线路类型与风险标记，并标注浏览器默认优先使用的协议栈；另附 Cloudflare 边缘 Trace 卡片，解析 `cdn-cgi/trace` 响应，展示命中边缘节点、协议、TLS 版本、SNI、WARP 等字段。
 - **连通性 / 分流测试**：按中国 / 日本 / 美国 / 全球分组，浏览器本地对各站点发起轻量请求并测往返延迟，8 轮取中位数，分组汇总可达数与平均延迟，支持整组刷新；进入该页即启动探测。站点图标由 favicon 聚合代理加载，加载失败自动隐藏、退化为纯文字。
 - **DNS 泄露检测**：批量解析随机子域，采集当前递归 DNS 解析器及其归属，与出口位置比对判定泄露。
 - **WebRTC 泄露检测**：多 STUN 收集 ICE 候选，区分公网(STUN) / 中继(TURN) / 本地，与出口 IP 比对，多公网出口预警。
@@ -41,6 +41,7 @@ net-check/
 │       ├── api.js          # 第三方接口封装（出口 / lookup / edns）
 │       ├── ui.js           # DOM 与数值工具
 │       ├── exit.js         # 出口 IP / 归属 / 风险画像
+│       ├── trace.js        # Cloudflare 边缘 Trace 卡片解析与渲染
 │       ├── sites.js        # 连通性站点清单与分组
 │       ├── connectivity.js # 连通性探测引擎
 │       ├── dns.js          # DNS 泄露检测
@@ -115,6 +116,7 @@ Vercel 把 `hono` 依赖 + `type: module` 的项目识别为 Hono 后端框架�
 | 默认优先栈出口 IP | `https://api64.ipify.org?format=json` |
 | 出口 IP 自探测 + 基础归属（备用） | `https://ipwho.is/` |
 | 出口 IP 备用 | `https://1.1.1.1/cdn-cgi/trace` |
+| Cloudflare 边缘 Trace | `https://cloudflare-ech.com/cdn-cgi/trace` |
 | IP 归属 / ASN / 风险画像 | `https://ip.net.coffee/api/ip/lookup/<ip>` |
 | DNS 递归解析器采样 | `https://<随机标签>.edns.ip-api.com/json` |
 | 连通性站点图标（favicon 代理） | `https://icons.duckduckgo.com/ip3/<host>.ico` |
