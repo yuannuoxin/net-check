@@ -1,0 +1,11 @@
+name = "net-check"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+
+# 前端静态资源（index.html + src/）作为静态资产上传，Workers 无文件系统，
+# 未被 Worker 命中的静态请求由 assets 绑定兜底（core.js 内 c.env.ASSETS）。
+[assets]
+directory = "./public"
+
+[observability]
+enabled = true

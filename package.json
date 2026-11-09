@@ -1,0 +1,27 @@
+{
+  "name": "net-check",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "网络自检工具箱：出口 IP/归属/ASN、连通性分流测试、DNS 泄露、WebRTC 泄露、验证码展示。Hono 骨架，浏览器直连第三方公开接口。",
+  "scripts": {
+    "dev": "node dev.js",
+    "start": "node dev.js",
+    "dry:cf": "wrangler deploy --dry-run --outdir=.wrangler-out",
+    "deploy:cf": "wrangler deploy",
+    "dev:pages": "wrangler pages dev public --compatibility-date 2026-10-01",
+    "deploy:pages": "wrangler pages deploy public --project-name net-check",
+    "deploy:vercel": "vercel deploy --prod --yes"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@hono/node-server": "^1.19.18",
+    "hono": "^4.13.17"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

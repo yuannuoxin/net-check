@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>连通性 / 分流测试 · 站点延迟与可达性 | Net Check</title>
+  <meta name="description" content="浏览器本地向国内外站点发起轻量请求，测量往返延迟与可达性，用于验证分流规则与线路通畅情况。结果为 HTTP 层延迟，非 ICMP ping。">
+  <link rel="canonical" href="/connectivity">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <h1>Net Check</h1>
+      <span class="brand-sub">网络自检工具箱</span>
+    </div>
+    <nav class="tabs" aria-label="主导航">
+      <a class="tab" href="/">出口概览</a>
+      <a class="tab active" href="/connectivity">连通性</a>
+      <a class="tab" href="/dns">DNS 泄露</a>
+      <a class="tab" href="/webrtc">WebRTC</a>
+      <a class="tab" href="/captcha">验证码</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="panel-head">
+      <div>
+        <h2>连通性 / 分流测试</h2>
+        <p class="muted">浏览器本地向各站点发起轻量请求并测量往返延迟，用于验证分流规则与线路通畅情况。结果为 HTTP 层延迟，非 ICMP ping。</p>
+      </div>
+      <button id="connBtn" class="btn">重新测试</button>
+    </div>
+    <div id="connRoot"></div>
+  </main>
+
+  <footer class="footer muted">
+    纯前端直连第三方公开接口 · 不记录、不存储检测结果 · 风险判定来自第三方库，仅供参考
+  </footer>
+
+  <script type="module" src="/src/boot-connectivity.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DNS 泄露检测 · 递归解析器归属 | Net Check</title>
+  <meta name="description" content="批量解析随机子域，采集你当前使用的递归 DNS 解析器及其归属地与运营商，与出口位置比对，判断是否存在 DNS 泄露。">
+  <link rel="canonical" href="/dns">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <h1>Net Check</h1>
+      <span class="brand-sub">网络自检工具箱</span>
+    </div>
+    <nav class="tabs" aria-label="主导航">
+      <a class="tab" href="/">出口概览</a>
+      <a class="tab" href="/connectivity">连通性</a>
+      <a class="tab active" href="/dns">DNS 泄露</a>
+      <a class="tab" href="/webrtc">WebRTC</a>
+      <a class="tab" href="/captcha">验证码</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="panel-head">
+      <div>
+        <h2>DNS 泄露检测</h2>
+        <p class="muted">批量解析随机子域，采集你当前使用的递归 DNS 解析器及其归属，与出口位置比对。</p>
+      </div>
+      <button id="dnsBtn" class="btn">开始检测</button>
+    </div>
+    <div id="dnsVerdict" class="verdict-area"></div>
+    <div id="dnsStatus" class="muted"></div>
+    <table class="grid-table" id="dnsTable" hidden>
+      <thead><tr><th>#</th><th>解析器 IP</th><th>归属地</th><th>ISP / ASN</th><th>状态</th></tr></thead>
+      <tbody id="dnsBody"></tbody>
+    </table>
+  </main>
+
+  <footer class="footer muted">
+    纯前端直连第三方公开接口 · 不记录、不存储检测结果 · 风险判定来自第三方库，仅供参考
+  </footer>
+
+  <script type="module" src="/src/boot-dns.js"></script>
+</body>
+</html>

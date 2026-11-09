@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>出口 IP 检测 · 归属地 / ASN / 信誉 | Net Check</title>
+  <meta name="description" content="查看本机 IPv4 / IPv6 出口地址、归属地、ASN 运营商与信誉评分，判断当前默认优先使用的协议栈。">
+  <link rel="canonical" href="/">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <h1>Net Check</h1>
+      <span class="brand-sub">网络自检工具箱</span>
+    </div>
+    <nav class="tabs" aria-label="主导航">
+      <a class="tab active" href="/">出口概览</a>
+      <a class="tab" href="/connectivity">连通性</a>
+      <a class="tab" href="/dns">DNS 泄露</a>
+      <a class="tab" href="/webrtc">WebRTC</a>
+      <a class="tab" href="/captcha">验证码</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="panel-head">
+      <div>
+        <h2>出口概览</h2>
+        <p class="muted">双栈出口并列展示，标注当前默认优先协议栈；归属、ASN 与信誉来自第三方公开查询接口。</p>
+      </div>
+    </div>
+    <div id="exitCard" class="card"><div class="loading">正在获取出口 IP…</div></div>
+  </main>
+
+  <footer class="footer muted">
+    纯前端直连第三方公开接口 · 不记录、不存储检测结果 · 风险判定来自第三方库，仅供参考
+  </footer>
+
+  <script type="module" src="/src/boot-overview.js"></script>
+</body>
+</html>
